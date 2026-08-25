@@ -12,11 +12,13 @@
 body{
     background:var(--primary-color);
     overflow-x: hidden;
-    
     gap: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 .dark{
-     --primary-color: #131b1b;
+    --primary-color: #131b1b;
     --secondary-color: #f1e4e4;
 }
 .home{
@@ -86,6 +88,7 @@ nav button{
 }
 .wrapper{
     display: flex;
+    flex-wrap: nowrap;
     padding: 10px ;
 }
 .img-gw {
@@ -94,11 +97,13 @@ nav button{
     justify-content: center;
     align-items: flex-end;
     padding: 10px 8%; 
+    
 }
 .img-gw img{
     width: 100%;
     max-width: 100vh;
-    height: auto;
+    min-width: 300px;
+    
 }
 .content {
     justify-self: center;
@@ -118,6 +123,7 @@ nav button{
     color: var(--secondary-color);
     font-size: 2vh;
     margin-bottom: 4vh;
+    line-height: 1.4;
 }
 .content a{
     background: var(--secondary-color);
@@ -169,21 +175,22 @@ nav button{
 }
 
 .skillslist span{
-    background: hsl(272, 8%, 70%); 
+    background: rgb(118, 84, 212);; 
     padding: 10px;
+    color: white;
     border-radius: 8px; 
     border: 1px solid #333;
     font-size: 17px;
     transition: 0.1s;
 }
 .skillslist span:hover{
-    background-color: var(--secondary-color);
-    color: black;
+    color: rgb(118, 84, 212);
+    border: 1px #1858d6;
+    background:#333333;
 }
 /* Portofolio.html*/
 .tittle{
-    font-size: clamp(28px, 6vw, 50px);
-    margin: 4vh clamp(2%, 5%, 8%);
+    margin: 10px 8%;
     color: var(--secondary-color);
 }
 .listporto{
@@ -240,14 +247,60 @@ nav button{
     background: rgb(216, 96, 247);
     color: white
 }
-
-
-/* ===== RESPONSIVE MOBILE ===== */
-@media (max-width: 816px) {
-    body {
-        grid-template-columns: 1fr;
+.menu-btn{
+        display: none;
     }
-    
+/* About.html */
+.img-salcorner{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.img-salcorner img{
+    width: 50%;
+    min-width: 200px;
+    max-width: 600px;
+    height: auto;
+    padding-left: 20px;
+}
+.img-salcorner h1{
+    color: var(--secondary-color);
+    padding-top: 20px;
+    padding-bottom: 20px;;
+}
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 882px) {
+
+    .menu-btn{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .navbar ul{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100vh;
+        margin: 0;
+        padding: 80px 30px;
+        background-color: var(--secondary-color);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        flex-direction: column;
+    }
+    .navbar ul.active{
+        transform: translateX(0);
+    }
+    .navbar ul li {
+        display: block;
+        margin: 15px 0;
+    }
+
+    .navbar ul li a {
+        display: block;
+        color: rgb(150, 30, 219);
+        font-size: 20px;
+    }
     .content {
         grid-column: 1;
         grid-row: 2;
@@ -298,7 +351,7 @@ nav button{
     .img-gw {
         position: static;
         width: 100%;
-        height: auto;
+        max-height: 400px;
         margin-top: 30px;
         text-align: center;
     }
@@ -306,7 +359,6 @@ nav button{
     .img-gw img {
         position: relative;
         width: 100%;
-        height: auto;
         left: 0;
         bottom: 0;
     }
@@ -359,106 +411,3 @@ nav button{
     }
 }
 
-/* ===== RESPONSIVE EXTRA SMALL ===== */
-@media (max-width: 480px) {
-    body {
-        grid-template-columns: 1fr;
-    }
-    
-    .content {
-        grid-column: 1;
-        grid-row: 2;
-        min-height: 50vh;
-    }
-    
-    .img-gw {
-        grid-column: 1;
-        grid-row: 3;
-        min-height: auto;
-    }
-    
-    nav {
-        width: 95%;
-        padding: 10px 0;
-    }
-    
-    .logo {
-        width: 80px;
-        font-size: 24px;
-    }
-    
-    .logo i {
-        margin-right: 5px;
-    }
-    
-    nav button {
-        font-size: 16px;
-    }
-    
-    .content {
-        margin-left: 5%;
-        margin-top: 30%;
-    }
-    
-    .content h1 {
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
-    
-    .content p {
-        font-size: 14px;
-        width: 100%;
-        line-height: 18px;
-    }
-    
-    .content a {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-    
-    .sosial {
-        margin-left: 5%;
-    }
-    
-    .sosial a {
-        font-size: 20px;
-        margin-right: 12px;
-    }
-    
-    .skills {
-        padding: 20px 5%;
-    }
-    
-    .moreskills {
-        font-size: 1.2rem;
-    }
-    
-    .skillslist {
-        gap: 10px;
-    }
-    
-    .skillslist span {
-        padding: 8px 15px;
-        font-size: 12px;
-    }
-    
-    .tittle {
-        font-size: 28px;
-        margin: 20px 5%;
-    }
-    
-    .listporto {
-        margin: 15px 5%;
-        padding: 15px 5%;
-    }
-    
-    .project-tags span {
-        padding: 8px 12px;
-        font-size: 12px;
-    }
-    
-    .project-links a {
-        padding: 8px 12px;
-        font-size: 12px;
-    }
-}
